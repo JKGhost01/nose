@@ -4,225 +4,390 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Mi Amor En Su 18 Cumpleaños 💜</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Fondo animado -->
-    <div class="animated-bg"></div>
+    <!-- Canvas 3D Background -->
+    <canvas id="canvas3d"></canvas>
+
+    <!-- Fondo animado mejorado -->
+    <div class="animated-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="noise"></div>
+    </div>
+
     <div id="confetti-container"></div>
 
-    <!-- Navigation -->
+    <!-- Navigation Premium -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <i class="fas fa-heart"></i> Mi Amor
+                <div class="brand-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <span>Mi Amor</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#hero">Inicio</a></li>
-                <li><a href="#gallery">Galería</a></li>
-                <li><a href="#about">Sobre Ti</a></li>
-                <li><a href="#message">Mensaje</a></li>
+                <li><a href="#hero" class="nav-link">Inicio</a></li>
+                <li><a href="#gallery" class="nav-link">Galería</a></li>
+                <li><a href="#about" class="nav-link">Sobre Ti</a></li>
+                <li><a href="#message" class="nav-link">Mensaje</a></li>
             </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section Premium -->
     <section id="hero" class="hero">
-        <div class="hero-content" data-aos="fade-up">
-            <div class="floating-icon">
-                <i class="fas fa-heart"></i>
+        <div class="hero-stars"></div>
+
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+
+            <div class="hero-icon-container">
+                <div class="floating-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="icon-glow"></div>
             </div>
+
             <h1 class="hero-title">
-                <span class="word">Feliz</span>
-                <span class="word">Cumpleaños</span>
-                <span class="word">Mi Amor</span>
+                <span class="word" style="--index: 0">Feliz</span>
+                <span class="word" style="--index: 1">Cumpleaños</span>
+                <span class="word" style="--index: 2">Mi Amor</span>
             </h1>
-            <p class="hero-subtitle">Hoy celebramos que llegaste al mundo ✨</p>
+
+            <p class="hero-subtitle">Hoy celebramos que llegaste al mundo hace 18 años</p>
+
             <div class="hero-badges">
-                <div class="badge">
+                <div class="badge badge-1" data-aos="zoom-in" data-aos-delay="200">
                     <span class="badge-number">18</span>
                     <span class="badge-text">Años perfecta</span>
                 </div>
-                <div class="badge">
+                <div class="badge badge-2" data-aos="zoom-in" data-aos-delay="400">
                     <span class="badge-number">∞</span>
                     <span class="badge-text">Te amaré</span>
                 </div>
+                <div class="badge badge-3" data-aos="zoom-in" data-aos-delay="600">
+                    <span class="badge-number">💜</span>
+                    <span class="badge-text">Para siempre</span>
+                </div>
             </div>
+
             <button class="cta-button" id="scrollBtn">
                 <span>Descubre la sorpresa</span>
                 <i class="fas fa-arrow-down"></i>
             </button>
         </div>
-        <div class="hero-particles"></div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery-section" data-aos="fade-up">
-        <div class="section-header">
-            <h2>Nuestros Momentos 💕</h2>
-            <p>Los recuerdos más bonitos contigo</p>
+    <!-- Gallery Section Avanzada -->
+    <section id="gallery" class="gallery-section">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">
+                <span class="title-word">Nuestros</span>
+                <span class="title-word">Momentos</span>
+                <span class="title-emoji">💕</span>
+            </h2>
+            <p class="section-subtitle">Los recuerdos más bonitos contigo</p>
+            <div class="title-underline"></div>
         </div>
+
         <div class="gallery-container">
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- Las fotos se cargan aquí con JavaScript -->
+            <div class="swiper gallery-swiper">
+                <div class="swiper-wrapper" id="galleryWrapper">
+                    <!-- Fotos cargadas dinámicamente -->
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section" data-aos="fade-up">
-        <div class="section-header">
-            <h2>¿Por Qué Te Amo? 💜</h2>
+    <!-- About Section Premium -->
+    <section id="about" class="about-section">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">
+                <span class="title-word">¿Por Qué</span>
+                <span class="title-word">Te Amo?</span>
+                <span class="title-emoji">💜</span>
+            </h2>
+            <div class="title-underline"></div>
         </div>
-        <div class="reasons-grid">
-            <div class="reason-item" data-aos="zoom-in">
-                <div class="reason-icon"><i class="fas fa-star"></i></div>
-                <h3>Tu Sonrisa</h3>
-                <p>Es lo más hermoso que he visto en mi vida</p>
-            </div>
-            <div class="reason-item" data-aos="zoom-in">
-                <div class="reason-icon"><i class="fas fa-music"></i></div>
-                <h3>Tu Risa</h3>
-                <p>Es mi canción favorita</p>
-            </div>
-            <div class="reason-item" data-aos="zoom-in">
-                <div class="reason-icon"><i class="fas fa-sparkles"></i></div>
-                <h3>Tu Luz</h3>
-                <p>Iluminas todos mis días</p>
-            </div>
-            <div class="reason-item" data-aos="zoom-in">
-                <div class="reason-icon"><i class="fas fa-brain"></i></div>
-                <h3>Tu Inteligencia</h3>
-                <p>Me amas por cómo pienso</p>
-            </div>
-            <div class="reason-item" data-aos="zoom-in">
-                <div class="reason-icon"><i class="fas fa-heart-hands"></i></div>
-                <h3>Tu Bondad</h3>
-                <p>Tu corazón es el más puro</p>
-            </div>
-            <div class="reason-item" data-aos="zoom-in">
-                <div class="reason-icon"><i class="fas fa-infinity"></i></div>
-                <h3>Todo de Ti</h3>
-                <p>Simplemente eres perfecta</p>
+
+        <div class="reasons-container">
+            <div class="reasons-grid">
+                <div class="reason-item" data-aos="flip-left" data-aos-delay="100">
+                    <div class="reason-inner">
+                        <div class="reason-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Tu Sonrisa</h3>
+                        <p>Es lo más hermoso que he visto en mi vida</p>
+                    </div>
+                </div>
+
+                <div class="reason-item" data-aos="flip-left" data-aos-delay="200">
+                    <div class="reason-inner">
+                        <div class="reason-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Tu Risa</h3>
+                        <p>Es mi canción favorita</p>
+                    </div>
+                </div>
+
+                <div class="reason-item" data-aos="flip-left" data-aos-delay="300">
+                    <div class="reason-inner">
+                        <div class="reason-icon">
+                            <i class="fas fa-sparkles"></i>
+                        </div>
+                        <h3>Tu Luz</h3>
+                        <p>Iluminas todos mis días</p>
+                    </div>
+                </div>
+
+                <div class="reason-item" data-aos="flip-right" data-aos-delay="400">
+                    <div class="reason-inner">
+                        <div class="reason-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Tu Inteligencia</h3>
+                        <p>Me fascina tu forma de pensar</p>
+                    </div>
+                </div>
+
+                <div class="reason-item" data-aos="flip-right" data-aos-delay="500">
+                    <div class="reason-inner">
+                        <div class="reason-icon">
+                            <i class="fas fa-hands-praying"></i>
+                        </div>
+                        <h3>Tu Bondad</h3>
+                        <p>Tu corazón es el más puro</p>
+                    </div>
+                </div>
+
+                <div class="reason-item" data-aos="flip-right" data-aos-delay="600">
+                    <div class="reason-inner">
+                        <div class="reason-icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <h3>Eres Completa</h3>
+                        <p>Simplemente eres perfecta para mí</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Stats Section Premium -->
     <section class="stats-section" data-aos="fade-up">
-        <h2>Números Que Hablan</h2>
+        <div class="section-header">
+            <h2 class="section-title">Números que Hablan 📊</h2>
+        </div>
+
         <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number" data-target="1055">0</div>
-                <div class="stat-label">Días contigo</div>
+            <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="stat-background"></div>
+                <div class="stat-content">
+                    <div class="stat-number" data-target="1055">0</div>
+                    <div class="stat-label">Días contigo</div>
+                    <div class="stat-icon"><i class="fas fa-calendar-heart"></i></div>
+                </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number" data-target="5275">0</div>
-                <div class="stat-label">Besos</div>
+
+            <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="stat-background"></div>
+                <div class="stat-content">
+                    <div class="stat-number" data-target="5275">0</div>
+                    <div class="stat-label">Besos</div>
+                    <div class="stat-icon"><i class="fas fa-lips"></i></div>
+                </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number" data-target="18">0</div>
-                <div class="stat-label">Años eres bella</div>
+
+            <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="stat-background"></div>
+                <div class="stat-content">
+                    <div class="stat-number" data-target="18">0</div>
+                    <div class="stat-label">Años eres bella</div>
+                    <div class="stat-icon"><i class="fas fa-crown"></i></div>
+                </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number" data-target="1055">0</div>
-                <div class="stat-label">Veces te amo cada día</div>
+
+            <div class="stat-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="stat-background"></div>
+                <div class="stat-content">
+                    <div class="stat-number" data-target="1055">0</div>
+                    <div class="stat-label">Veces te amo cada día</div>
+                    <div class="stat-icon"><i class="fas fa-heart"></i></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Message Section -->
+    <!-- Message Section Premium -->
     <section id="message" class="message-section" data-aos="fade-up">
-        <div class="message-box">
-            <div class="message-header">
-                <i class="fas fa-envelope-open-text"></i>
-                <h2>Mi Mensaje Para Ti</h2>
-            </div>
-            <div class="message-content">
-                <p>Mi amor,</p>
-                <p>
-                    Hoy no es un día cualquiera. Es el día en que el mundo se volvió más bonito, porque tú llegaste aquí
-                    hace 18 años. Y aunque no te conocía en ese entonces, sé que mi alma estuvo esperándote.
-                </p>
-                <p>
-                    Quiero que sepas que cada momento contigo es un regalo. Tu risa es mi medicina, tus abrazos son mi
-                    casa, y tu amor es lo que más valoro en este mundo. No hay palabra que describa exactamente lo que
-                    siento por ti, así que solo diré: te amo de una forma que no sabía que era posible.
-                </p>
-                <p>
-                    Eres inteligente, hermosa, bondadosa y tienes una luz propia que ilumina hasta los días más oscuros.
-                    Me haces ser una mejor persona cada día, y por eso estoy eternamente agradecido.
-                </p>
-                <p>
-                    Este año que comienza será especial porque te tendré a mi lado. Prometo hacerte feliz, apoyarte en
-                    cada paso, y crear con te miles de momentos mágicos más.
-                </p>
-                <p class="message-closing">
-                    Feliz cumpleaños, mi amor. Que el mundo siga celebrándote como yo lo hago todos los días.
-                </p>
-                <p class="signature">Con todo mi corazón, tu niño 💜</p>
+        <div class="section-header">
+            <h2 class="section-title">Mi Mensaje Para Ti 💌</h2>
+        </div>
+
+        <div class="message-wrapper">
+            <div class="message-box" data-aos="zoom-in" data-aos-duration="1200">
+                <div class="message-header">
+                    <div class="envelope-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                </div>
+
+                <div class="message-content">
+                    <p class="message-greeting">Mi amor,</p>
+
+                    <p class="message-paragraph">
+                        Hoy no es un día cualquiera. Es el día en que el mundo se volvió más bonito, porque tú llegaste aquí
+                        hace 18 años. Y aunque no te conocía en ese entonces, sé que mi alma estuvo esperándote todo ese tiempo.
+                    </p>
+
+                    <p class="message-paragraph">
+                        Quiero que sepas que cada momento contigo es un regalo que valoro profundamente. Tu risa es mi medicina,
+                        tus abrazos son mi hogar, y tu amor es lo que más valoro en este mundo. No hay palabra que describa exactamente
+                        lo que siento por ti, así que solo diré: te amo de una forma que no sabía que era posible amar a alguien.
+                    </p>
+
+                    <p class="message-paragraph">
+                        Eres inteligente, hermosa, bondadosa y tienes una luz propia que ilumina hasta los días más oscuros.
+                        Me haces ser una mejor persona cada día, y por eso estoy eternamente agradecido de tenerte en mi vida.
+                    </p>
+
+                    <p class="message-paragraph">
+                        Este año que comienza será especial porque te tendré a mi lado. Prometo hacerte feliz, apoyarte en
+                        cada paso, y crear contigo miles de momentos mágicos más.
+                    </p>
+
+                    <p class="message-closing">
+                        Feliz cumpleaños, mi amor. Que el mundo siga celebrándote como yo lo hago todos los días.
+                    </p>
+
+                    <p class="message-signature">Con todo mi corazón, tu niño 💜</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Timeline Section -->
+    <!-- Timeline Section Premium -->
     <section class="timeline-section" data-aos="fade-up">
-        <h2>Nuestro Viaje Juntos</h2>
+        <div class="section-header">
+            <h2 class="section-title">Nuestro Viaje Juntos ✨</h2>
+            <div class="title-underline"></div>
+        </div>
+
         <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-point"></div>
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-pulse"></div>
+                </div>
                 <div class="timeline-content">
+                    <div class="timeline-date">10 de Julio, 2023</div>
                     <h3>El Primer Encuentro</h3>
-                    <p>El momento que cambió mi vida para siempre</p>
+                    <p>El momento que cambió mi vida para siempre. Nuestro primer día.</p>
                 </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-point"></div>
+
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-pulse"></div>
+                </div>
                 <div class="timeline-content">
+                    <div class="timeline-date">Pronto</div>
                     <h3>Primer Beso</h3>
-                    <p>Cuando supe que eras la indicada</p>
+                    <p>Cuando supe que eras la indicada.</p>
                 </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-point"></div>
+
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-pulse"></div>
+                </div>
                 <div class="timeline-content">
-                    <h3>18 Años Hoy</h3>
-                    <p>Tu cumpleaños más especial</p>
+                    <div class="timeline-date">Hoy</div>
+                    <h3>Tu Cumpleaños 18</h3>
+                    <p>El cumpleaños más especial. Tu mayoría de edad.</p>
                 </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-point"></div>
+
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-pulse"></div>
+                </div>
                 <div class="timeline-content">
+                    <div class="timeline-date">Siempre</div>
                     <h3>Muchos Años Juntos</h3>
-                    <p>Nuestro futuro está por escribirse ✨</p>
+                    <p>Nuestro futuro está por escribirse, y quiero que sea contigo. 💜</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Interactive Button -->
+    <!-- Action Section Premium -->
     <section class="action-section">
-        <button class="surprise-btn" id="surpriseBtn">
-            <i class="fas fa-gift"></i>
-            <span>¡Abre la Sorpresa!</span>
-            <i class="fas fa-sparkles"></i>
-        </button>
+        <div class="action-content" data-aos="zoom-in">
+            <p class="action-text">¿Listo para la sorpresa?</p>
+            <button class="surprise-btn" id="surpriseBtn">
+                <span class="btn-inner">
+                    <i class="fas fa-gift"></i>
+                    <span>¡Abre la Sorpresa!</span>
+                    <i class="fas fa-sparkles"></i>
+                </span>
+                <div class="btn-glow"></div>
+            </button>
+        </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer Premium -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-text">
-                <p>Hecho con 💜 para el cumpleaños más especial</p>
-                <p class="footer-date">18 de Mayo de 2026</p>
+            <div class="footer-section">
+                <h3>Hecho con 💜</h3>
+                <p>Para el cumpleaños más especial</p>
             </div>
+            <div class="footer-divider"></div>
+            <div class="footer-section">
+                <p class="footer-date">29 de Mayo de 2026</p>
+                <p class="footer-date-note">1055 días juntos desde el 10 de julio del 2023</p>
+            </div>
+            <div class="footer-divider"></div>
             <div class="footer-socials">
-                <a href="#" class="social-link"><i class="fas fa-heart"></i></a>
-                <a href="#" class="social-link"><i class="fas fa-star"></i></a>
-                <a href="#" class="social-link"><i class="fas fa-sparkles"></i></a>
+                <a href="#" class="social-icon" data-tooltip="Amor">
+                    <i class="fas fa-heart"></i>
+                </a>
+                <a href="#" class="social-icon" data-tooltip="Estrella">
+                    <i class="fas fa-star"></i>
+                </a>
+                <a href="#" class="social-icon" data-tooltip="Magia">
+                    <i class="fas fa-sparkles"></i>
+                </a>
             </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Cada día contigo es un regalo 🎁</p>
         </div>
     </footer>
 
@@ -230,6 +395,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
