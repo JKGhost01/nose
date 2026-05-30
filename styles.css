@@ -900,12 +900,12 @@ body {
 }
 
 .timeline-item {
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
     position: relative;
 }
 
-.timeline-item-spacer {
-    margin-bottom: 8rem;
+.timeline-item:nth-child(3) {
+    margin-bottom: 7rem;
 }
 
 .timeline-item:nth-child(odd) {
