@@ -904,6 +904,10 @@ body {
     position: relative;
 }
 
+.timeline-item-spacer {
+    margin-bottom: 8rem;
+}
+
 .timeline-item:nth-child(odd) {
     text-align: right;
     padding-right: calc(50% + 30px);
