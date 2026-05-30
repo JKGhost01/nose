@@ -409,19 +409,8 @@ window.addEventListener('load', () => {
 });
 
 // ========== SCROLL ANIMATIONS GSAP ==========
-gsap.utils.toArray('.reason-item').forEach((element, index) => {
-    gsap.from(element, {
-        scrollTrigger: {
-            trigger: element,
-            start: 'top 80%',
-            end: 'top 20%',
-            scrub: 1
-        },
-        opacity: 0,
-        y: 100,
-        rotation: -5
-    });
-});
+// Animaciones personalizadas para otros elementos si es necesario
+// Los reason-items se animan con AOS
 
 // ========== MOBILE OPTIMIZATION ==========
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
