@@ -458,6 +458,42 @@ if ('IntersectionObserver' in window) {
     document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
 }
 
+// ========== SLIDER INTERACTIVO ==========
+const loveSlider = document.getElementById('loveSlider');
+const sliderDate = document.getElementById('sliderDate');
+
+if (loveSlider) {
+    // Fecha inicial: 10 de julio de 2023
+    const startDate = new Date(2023, 6, 10); // Julio = mes 6
+
+    loveSlider.addEventListener('input', function() {
+        const days = parseInt(this.value);
+        const currentDate = new Date(startDate);
+        currentDate.setDate(currentDate.getDate() + days);
+
+        // Formatear fecha
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = currentDate.toLocaleDateString('es-ES', options);
+
+        sliderDate.textContent = formattedDate;
+
+        // Efecto visual
+        gsap.to(sliderDate, {
+            scale: 1.1,
+            duration: 0.3,
+            yoyo: true,
+            repeat: 1
+        });
+    });
+
+    // Inicializar con la fecha actual
+    loveSlider.value = 1055;
+    const currentDate = new Date(startDate);
+    currentDate.setDate(currentDate.getDate() + 1055);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    sliderDate.textContent = currentDate.toLocaleDateString('es-ES', options);
+}
+
 // ========== PERFORMANCE MONITORING ==========
 console.log('🎉 ¡Página cargada exitosamente!');
 console.log('💜 Hecha con amor por tu persona especial');
